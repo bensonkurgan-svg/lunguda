@@ -43,7 +43,7 @@
                focus:border-sorghum focus:ring-sorghum transition;
     }
     .chip {
-        @apply inline-flex items-center gap-1 rounded-full bg-indigo2/8 text-indigo2 px-3 py-1 text-xs font-semibold;
+        @apply inline-flex items-center gap-1 rounded-full bg-indigo2/10 text-indigo2 px-3 py-1 text-xs font-semibold;
     }
 
     /* Signature: the pulsing "pronounce" control */
