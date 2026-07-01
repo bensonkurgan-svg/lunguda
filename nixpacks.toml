@@ -1,0 +1,16 @@
+# Alternative builder. Railway prefers the Dockerfile when present; delete the
+# Dockerfile to fall back to this Nixpacks config.
+providers = ["php", "node"]
+
+[phases.build]
+cmds = [
+  "composer install --no-dev --optimize-autoloader --no-interaction",
+  "npm ci",
+  "npm run build",
+]
+
+[phases.release]
+cmd = "php artisan migrate --force && php artisan storage:link && php artisan config:cache && php artisan route:cache"
+
+[start]
+cmd = "php artisan serve --host 0.0.0.0 --port ${PORT:-8080}"
